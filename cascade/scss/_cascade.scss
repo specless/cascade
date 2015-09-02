@@ -163,7 +163,7 @@
      font-size: 16rem;
 }
 
-#primary-collapser {
+[data-name="defaultCloseButton"] {
      width: 44px;
      height: 44px;
      position: fixed;
@@ -177,6 +177,7 @@
           border-radius: 50%;
           background: #ffffff;
           position: absolute;
+          font-family: Times;
           top: 6px;
           right: 6px;
           font-size: 20px;

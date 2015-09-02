@@ -149,20 +149,21 @@ html {
   height: 100%;
   font-size: 16rem; }
 
-#primary-collapser {
+[data-name="defaultCloseButton"] {
   width: 44px;
   height: 44px;
   position: fixed;
   top: 0;
   right: 0;
   cursor: pointer; }
-  #primary-collapser::before {
+  [data-name="defaultCloseButton"]::before {
     content: "\2715";
     width: 22px;
     height: 22px;
     border-radius: 50%;
     background: #ffffff;
     position: absolute;
+    font-family: Times;
     top: 6px;
     right: 6px;
     font-size: 20px;
