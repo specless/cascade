@@ -24,9 +24,8 @@ Instead, author your HTML by editing /html/_banner.html
 
 <!-- Note: Path to 'assets' folder is "../assets/" -->
 <div data-component="banner">
-
-    <p>Hello World.</p>
-    
+	<!-- Banner Content Goes Here -->
+    Hello World. This is the banner.
 </div>
 
 <!-- End: Banner HTML Content -->
@@ -82,8 +81,14 @@ Instead, author your HTML by editing /html/_banner.html
         },
         search = parseSearch(),
         fetchTheScripts = function () {
-            var script = document.createElement('script');
-            script.src = 'http://s.specless.io/frame/1/scripts/' + search.load;
+            var src = search.load,
+                script = document.createElement('script');
+            if (search.baseLoad) {
+                src = search.baseLoad + src;
+            } else {
+                src = 'http://s.specless.io/frame/1/scripts/' + src;
+            }
+            script.src = src;
             var callback = function () {
                 make();
                 this.parentNode.appendChild(Specless.makeScript(search.userJs));

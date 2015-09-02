@@ -6,6 +6,6 @@
 // Write your custom styles below
 //-----------------------------------------------
 
-@include component(banner) {
+[data-component="banner"] {
 	// You can style the banner container here
 }

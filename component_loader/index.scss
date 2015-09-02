@@ -9,7 +9,7 @@
 // You can optionally include a loader animation using the loader mixin (options are 'flip', 'spin', and 'pulse');
 @include loader-style(spin, #ffffff);
 
-@include component(loader) {
+[data-component="loader"] {
 	// You can style the loader container here
 	background: #000000;
 }
