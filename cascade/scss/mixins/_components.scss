@@ -1,0 +1,21 @@
+@mixin component($component) {
+	@if $component == loader {
+		[data-component="loader"] {
+			@content;
+		}	
+	} @else if $component == banner {
+		[data-component="banner"] {
+			@content;
+		}
+	} @else if $component == panel {
+		[data-component="panel"] {
+			@content;
+		}
+	} @else if $component == all {
+		[data-component] {
+			@content;
+		}
+	} @else {
+		@error "'#{$component}'' is not a valid component. Valid components are 'loader', 'banner', and 'panel'";
+	}
+}

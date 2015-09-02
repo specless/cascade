@@ -1,0 +1,67 @@
+@mixin context($context, $value: true) {
+	
+	$value-prefix: str-slice($context, 1, 3);
+	$selector: #{&};
+	$string: str-slice($selector, 1, 14);
+
+	@if $string == '[data-flowlane' {
+		// we are in a flowlane
+		@if $value == true {
+			@at-root [data-#{$context}]#{&} {
+				@content;
+			}
+		} @else {
+			@at-root {
+				@if $value-prefix == 'min' or $value-prefix == 'max' {
+					[data-#{$context}~='#{$value}']#{&} {
+						@content;
+					}
+				} @else {
+					[data-#{$context}='#{$value}']#{&} {
+						@content;
+					}
+				}
+			} 
+		}
+	} @else {
+		@if $value == true {
+			@at-root {
+				[data-#{$context}] #{&} {
+					@content;
+				}
+			}
+		} @else {
+			@at-root {
+				@if $value-prefix == 'min' or $value-prefix == 'max' {
+					[data-#{$context}~='#{$value}'] #{&} {
+						@content;
+					}
+				} @else {
+					[data-#{$context}='#{$value}'] #{&} {
+						@content;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin context-range($context, $min, $max: $min) {
+	
+	$selector: #{&};
+	$string: str-slice($selector, 1, 14);
+
+	@if $string == '[data-flowlane' {
+		@at-root {
+			[data-min-#{$context}~='#{$min}'][data-max-#{$context}~='#{$max}']#{&} {
+				@content;
+			}
+		}
+	} @else {
+		@at-root {
+			[data-min-#{$context}~='#{$min}'][data-max-#{$context}~='#{$max}'] #{&} {
+				@content;
+			}
+		}
+	}
+}

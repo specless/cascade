@@ -1,0 +1,21 @@
+@mixin flowlane($height) {
+	@if & {
+		$string: str-slice(#{&}, 1, 6);
+
+		@if $string == '[data-' {
+			@at-root {
+				[data-flowlane='#{$height}']#{&} {
+					@content;
+				}
+			}
+		} @else {
+			[data-flowlane='#{$height}'] & {
+				@content;
+			}
+		}
+	} @else {
+		[data-flowlane='#{$height}'] #{&} {
+			@content;
+		}
+	}
+}
