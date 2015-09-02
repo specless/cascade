@@ -175,3 +175,5 @@ html {
 
 /* Global Styles */
 /* =============================================== */
+[data-component="banner"] {
+  background: #ffffff; }

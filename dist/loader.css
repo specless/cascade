@@ -182,10 +182,10 @@ html {
   font-size: 10px;
   position: absolute;
   text-indent: -9999em;
-  border-top: 4px solid rgba(255, 255, 255, 0.2);
-  border-right: 4px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
-  border-left: 4px solid #ffffff;
+  border-top: 4px solid rgba(0, 0, 0, 0.2);
+  border-right: 4px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #000000;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
@@ -215,4 +215,4 @@ html {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 [data-component="loader"] {
-  background: #000000; }
+  background: #ffffff; }
