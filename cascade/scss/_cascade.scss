@@ -5,6 +5,7 @@
 @import "mixins/_center-abs";
 @import "mixins/_loader-styles";
 @import "mixins/_components";
+@import "mixins/_closer";
 
 // Resets
 
@@ -163,30 +164,5 @@
      font-size: 16rem;
 }
 
-[data-name="defaultCloseButton"] {
-     width: 44px;
-     height: 44px;
-     position: fixed;
-     top: 0;
-     right: 0;
-     cursor: pointer;
-     &::before {
-          content: "\2715";
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: #ffffff;
-          position: absolute;
-          font-family: Times;
-          top: 6px;
-          right: 6px;
-          font-size: 20px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 1.2;
-          cursor: pointer;
-          color: #000000;
-          opacity: 0.65;
-     }
-}
+@include closer;
 

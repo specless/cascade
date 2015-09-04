@@ -3,8 +3,9 @@
 // Import Dependencies
 @import "../_global-styles";
 
+/* Loader Styles */
+/* =============================================== */
 // Write your custom styles below
-//-----------------------------------------------
 
 // You can optionally include a loader animation using the loader mixin (options are 'flip', 'spin', and 'pulse');
 @include loader-style(spin, #000000);

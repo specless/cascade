@@ -1,3 +1,4 @@
+@charset "UTF-8";
 a,
 abbr,
 acronym,
@@ -157,7 +158,7 @@ html {
   right: 0;
   cursor: pointer; }
   [data-name="defaultCloseButton"]::before {
-    content: "\2715";
+    content: "✕";
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -175,6 +176,8 @@ html {
     opacity: 0.65; }
 
 /* Global Styles */
+/* =============================================== */
+/* Panel Styles */
 /* =============================================== */
 [data-component="panel"] {
   background: #ffffff; }

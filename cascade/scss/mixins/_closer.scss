@@ -1,0 +1,29 @@
+@mixin closer($color: #ffffff, $icon-color: #000000, $icon: "\2715") {
+	[data-name="defaultCloseButton"] {
+		width: 44px;
+	     height: 44px;
+	     position: fixed;
+	     top: 0;
+	     right: 0;
+	     cursor: pointer;
+	     &::before {
+	          content: $icon;
+	          width: 22px;
+	          height: 22px;
+	          border-radius: 50%;
+	          background: $color;
+	          position: absolute;
+	          font-family: Times;
+	          top: 6px;
+	          right: 6px;
+	          font-size: 20px;
+	          font-weight: bold;
+	          text-align: center;
+	          line-height: 1.2;
+	          cursor: pointer;
+	          color: $icon-color;
+	          opacity: 0.65;
+	     }
+		@content;
+	}
+}
