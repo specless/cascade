@@ -141,7 +141,8 @@ html {
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
-  z-index: inherit; }
+  z-index: inherit;
+  -webkit-highlight-color: transparent; }
 
 [data-component] {
   display: inline-block;
@@ -174,6 +175,9 @@ html {
     cursor: pointer;
     color: #000000;
     opacity: 0.65; }
+
+#lpckConMessageOverlay {
+  display: none !important; }
 
 /* Global Styles */
 /* =============================================== */

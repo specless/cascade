@@ -167,3 +167,8 @@
 
 @include closer;
 
+// Hide Codekit Errors
+
+#lpckConMessageOverlay {
+     display: none !important;
+}
