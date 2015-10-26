@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 					port: 9000,
 					bases: "dist/../",
 					hostname: "localhost",
-					open: 'http://specless.io/view.html?ad=000000&banSrc=http://<%= express.server.options.hostname %>:<%= express.server.options.port %>/dist/banner.html&panSrc=http://<%= express.server.options.hostname %>:<%= express.server.options.port %>/dist/panel.html&ldrSrc=http://<%= express.server.options.hostname %>:<%= express.server.options.port %>/dist/loader.html'
+					open: encodeURI('http://app.specless.io/preview?height=250&width=300&transition=300&mobile=false&ad=000000#{"banSrc":"http://localhost:9000/dist/banner.html","panSrc":"http://localhost:9000/dist/panel.html","ldrSrc":"http://localhost:9000/dist/loader.html","unfriendlyCreative":true}')
 				}
 			}
 		},
