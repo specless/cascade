@@ -10,6 +10,18 @@ module.exports = function (grunt) {
                 }
             }
         },
+        postcss: {
+            options: {
+                map: false, // inline sourcemaps
+                processors: [
+                    require('postcss-focus'),
+                    require('autoprefixer')({browsers: 'last 3 versions'}) // add vendor prefixes
+                ]
+            },
+            dist: {
+                src: 'dist/*.css'
+            }
+        },
         express: {
             server: {
                 options: {
@@ -23,7 +35,7 @@ module.exports = function (grunt) {
         watch: {
             css: {
                 files: '**/*.scss',
-                tasks: ['sass', 'autoprefixer:banner', 'autoprefixer:panel', 'autoprefixer:loader'],
+                tasks: ['sass', 'postcss'],
                 options: {
                     livereload: true
                 }
@@ -93,6 +105,11 @@ module.exports = function (grunt) {
                 files: {
                     'dist/loader.html': 'cascade/templates/loader.kit'
                 }
+            },
+            inline: {
+                files: {
+                    'cascade/build/loader-inline.html': 'cascade/templates/loader-inline.kit'
+                }
             }
         },
         concat: {
@@ -109,23 +126,25 @@ module.exports = function (grunt) {
                 dest: 'dist/loader.js'
             }
         },
-        autoprefixer: {
-            banner: {
-                src: 'dist/banner.css'
-            },
-            panel: {
-                src: 'dist/panel.css'
-            },
-            loader: {
-                src: 'dist/loader.css'
+        zip: {
+            'package': {
+                router: function (filepath) {
+                  // Route each file to all/{{filename}}
+                  // var filename = path.basename(filepath);
+                  return 'specless-cascade-creative/' + filepath;
+                },
+                src: ['dist/*', 'assets/**', 'component_banner/*', 'component_panel/*', 'component_loader/*', 'Gruntfile.js', 'LICENSE', 'package.json', 'cascade/**'],
+                dest: 'ingestion/cascade-ad-package.zip'
             }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-codekit');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-zip');
     grunt.registerTask('default', ['express', 'watch']);
+    grunt.registerTask('package', ['zip']);
 };
