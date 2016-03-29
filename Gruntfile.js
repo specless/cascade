@@ -1,4 +1,7 @@
 module.exports = function (grunt) {
+    var path = __dirname,
+        directory = path.split(/[/]+/).pop(),
+        zipDirectory = directory.replace(/\s+/g, "-");
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -129,12 +132,10 @@ module.exports = function (grunt) {
         zip: {
             'package': {
                 router: function (filepath) {
-                  // Route each file to all/{{filename}}
-                  // var filename = path.basename(filepath);
-                  return 'specless-cascade-creative/' + filepath;
+                    return directory + '/' + filepath;
                 },
-                src: ['dist/*', 'assets/**', 'component_banner/*', 'component_panel/*', 'component_loader/*', 'Gruntfile.js', 'LICENSE', 'package.json', 'cascade/**'],
-                dest: 'ingestion/cascade-ad-package.zip'
+                src: ['dist/*', 'assets/**', 'component_banner/*', 'component_panel/*', 'component_loader/*', 'Gruntfile.js', 'LICENSE', 'package.json', 'cascade/**', '_global-styles.scss'],
+                dest: 'ingestion/' + zipDirectory + '.zip'
             }
         }
     });

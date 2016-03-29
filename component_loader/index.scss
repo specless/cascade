@@ -1,13 +1,15 @@
 // Note: Path to 'assets' folder is "../assets/"
 
 // Import Dependencies
-@import "../_global-styles";
+@import "../cascade/scss/util/_resetsLoader";
+@import "../cascade/scss/mixins/_loader-styles";
 
-/* Loader Styles */
-/* =============================================== */
+// Loader Styles */
+// ===============================================
 // Write your custom styles below
 
 // You can optionally include a loader animation using the loader mixin (options are 'flip', 'spin', and 'pulse');
+// @include loader-style(pulse, #000000);
 @include loader-style(spin, #000000);
 
 [data-component="loader"] {
