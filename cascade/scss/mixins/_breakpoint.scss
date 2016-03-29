@@ -1,5 +1,5 @@
 @mixin breakpoint($width, $minmax: max) {
-	$selector: #{&};
+	$selector: unquote("#{&}");
 	$start: str-index($selector, "'") + 1;
 	$end: str-index($selector, "]") - 2;
 	$fl-height: str-slice($selector, $start, $end);
